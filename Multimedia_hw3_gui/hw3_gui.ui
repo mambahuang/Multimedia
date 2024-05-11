@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QPushButton" name="btn_edge">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>70</y>
+     <width>261</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>MV Boli</family>
+     <pointsize>9</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Edge Detection</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_histEqu">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>170</y>
+     <width>261</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>MV Boli</family>
+     <pointsize>9</pointsize>
+     <weight>75</weight>
+     <italic>false</italic>
+     <bold>true</bold>
+     <strikeout>false</strikeout>
+    </font>
+   </property>
+   <property name="text">
+    <string>Histogram Equalization</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
