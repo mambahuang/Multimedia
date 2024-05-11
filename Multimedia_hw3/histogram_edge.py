@@ -1,9 +1,11 @@
+import io
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
+from PIL import Image
 
 '''Histogram Equalization'''
-def Q1(img, img_grey):
+def Hist(img, img_grey):
     num_list = range(256)
     hist = cv2.calcHist([img], [0], None, [256], [0, 256])
 
@@ -24,10 +26,10 @@ def Q1(img, img_grey):
     plt.ylabel('Frequency')
     # Equalize with OpenCV
     plt.subplot(2, 3, 2)
-    plt.imshow(equ, cmap='gray')
+    plt.imshow(equ, cmap='grey')
     cv2.imwrite('./images/Histogram_Equalization_OpenCV.bmp', equ)
     plt.title('Equalize with OpenCV')
-    
+
     plt.subplot(2, 3, 5)
     # plt.hist(equ.flatten(), 256, [0, 256], color='b')
     plt.bar(num_list, hist_euq.flatten())
@@ -39,7 +41,7 @@ def Q1(img, img_grey):
     equ_my = HistogramEqualization(img_grey)
     my_hist_euq = cv2.calcHist([equ_my], [0], None, [256], [0, 256])
     plt.subplot(2, 3, 3)
-    plt.imshow(equ_my, cmap='gray')
+    plt.imshow(equ_my, cmap='grey')
     cv2.imwrite('./images/Histogram_Equalization_manual.bmp', equ_my)
     plt.title('Equalized Manually')
     plt.subplot(2, 3, 6)
@@ -49,7 +51,6 @@ def Q1(img, img_grey):
     plt.xlabel('Grey Scale')
     plt.ylabel('Frequency')
     plt.show()
-    print('============= Histogram Equalization Done! =============')
 
 def HistogramEqualization(img):
     # Get the height and width of the image
@@ -60,13 +61,9 @@ def HistogramEqualization(img):
     hist = cv2.calcHist([img], [0], None, [256], [0, 256])
     # Calculate the cumulative histogram
     cum_hist = np.cumsum(hist)
-    # Calculate the cumulative histogram
     cum_hist = cum_hist / num_pixels
-    # Calculate the cumulative histogram
     cum_hist = cum_hist * 255
-    # Calculate the cumulative histogram
     cum_hist = np.uint8(cum_hist)
-    # Calculate the cumulative histogram
     equ = cum_hist[img]
     return equ
 
@@ -124,13 +121,11 @@ if __name__ == '__main__':
     img_grey = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     start = False
     action = input('Please enter the action you want to perform (eq {Equalization}/ed {Edge Detection}): ')
-    while action == '':
-        pass
 
     start = True
     while start:
         if action == 'eq': # Q1 : Histogram Equalization
-            Q1(img_rgb, img_grey)
+            Hist(img_rgb, img_grey)
         elif action == 'ed': # Q2 : Edge Detection
             comb_thres(img_grey)
         else: 
